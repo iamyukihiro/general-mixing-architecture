@@ -24,7 +24,7 @@ stateDiagram
     ■HiHat --> DrumBus
     ■ImpactFX --> FXBus
     ■SweepFX --> FXBus
-    ■Kick --> Bass : Kickによるサイドチェイン制御
+    ■Kick --> ■Bass : Kickによるサイドチェイン制御
     ■Bass --> BassBus
 
     %% ボーカル処理：DryとReverb Sendに分岐
