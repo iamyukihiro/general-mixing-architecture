@@ -5,7 +5,7 @@
 - すべての Bus には「オプトコンプ」が挿入させており、多段式にコンプレッションすることで、自然なピークリダクションを狙っています。
 - 自然に目立たせたい音は多段式コンプレッションをバイパスしています (例：FX や WetVox)
 
-## コンセプト
+## ダイアグラム
 
 ```mermaid
 stateDiagram
@@ -51,12 +51,17 @@ stateDiagram
     note right of NaturalBus : InstrumentBus上の多段コンプをバイパスして自然な出力を行う
     BassBus --> NaturalBus
     NaturalBus --> KaraokeBus : 自然な出力音
-        KaraokeBus --> PreMaster
+    KaraokeBus --> PreMaster
+    note right of KaraokeBus : マスタリング EQ を用いてオプトコンプで付与された中域の倍音成分を整える
+    note right of KaraokeBus : マスタリング EQ を用いて Vox 用の帯域を削る
+               
     InstrumentBus --> KaraokeBus : 多段圧縮された音
     VoxBus --> PreMaster
+     note left of VoxBus : マスタリング EQ や ダイナミック EQ を用いて不要な帯域を削る
 
     %% Master出力
     PreMaster --> Master
+    note right of PreMaster : マスタリング EQ を用いて最終的な全体のトーンを整える
     note right of PreMaster : 2mix
 
     Master --> [*]
