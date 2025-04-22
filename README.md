@@ -57,7 +57,7 @@ stateDiagram
                
     InstrumentBus --> KaraokeBus : 多段圧縮された音
     VoxBus --> PreMaster
-     note left of VoxBus : マスタリング EQ や ダイナミック EQ を用いて不要な帯域を削る
+     note left of VoxBus : マスタリング EQ や ダイナミック EQ、リニアフェイズEQ を用いて不要な帯域を削る
 
     %% Master出力
     PreMaster --> Master
